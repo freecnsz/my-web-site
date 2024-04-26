@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free's World</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('assets/background.jpg'); /* Replace 'background.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: rgba(0, 0, 0, 0.7); /* Adjust transparency here */
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #logo {
+            font-size: 36px;
+            margin-bottom: 30px; /* Increased space between "Hoşgeldiniz" and "Hayırlısı" */
+            color: black; /* Text color changed to black */
+        }
+
+        #main-text {
+            font-size: 48px;
+            font-weight: bold;
+            color: black; /* Text color changed to black */
+            animation: fadeIn 2s ease infinite alternate; /* Continuous animation for fading in and out */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .icon {
+            width: 35px;
+            height: 35px;
+            margin: 20px; 
+        }
+
+        #footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8); 
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="logo">Hoş Geldiniz</div> 
+    <div id="main-text">Hayırlısı</div>
+    <div id="social-icons">
+        <a href="https://www.linkedin.com/in/freecnsz" target="_blank"><img class="icon" src="assets/linkedin.png" alt="LinkedIn"></a>  
+        <a href="https://www.instagram.com/freecnsz" target="_blank"><img class="icon" src="assets/instagram.png" alt="Instagram"></a>
+    </div>
+    <div id="footer">
+        All rights reserved © 2024. Powered by @freecnsz
+    </div>
+</body>
+</html>
+
