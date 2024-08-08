@@ -1,80 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Personel website for @freecnsz" />
+    <meta name="author" content="Özgür Cansız" />
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+    <meta property="og:site_name" content="freecnsz.com" />
+    <!-- website name -->
+    <meta property="og:site" content="freecnsz.com" />
+    <!-- website link -->
+    <meta property="og:title" content="Developer" />
+    <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="" />
+    <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="" />
+    <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="https:" />
+    <!-- where do you want your post to link to -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- to have large image post format in Twitter -->
+
+    <!-- Webpage Title -->
     <title>Free's World</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('background.jpg'); /* Replace 'background.jpg' with your image file */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: rgba(0, 0, 0, 0.7); /* Adjust transparency here */
-            color: white;
-            text-align: center;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
 
-        #logo {
-            font-size: 36px;
-            margin-bottom: 30px; /* Increased space between "Hoşgeldiniz" and "Hayırlısı" */
-            color: black; /* Text color changed to black */
-        }
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/fontawesome-all.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
 
-        #main-text {
-            font-size: 48px;
-            font-weight: bold;
-            color: black; /* Text color changed to black */
-            animation: fadeIn 2s ease infinite alternate; /* Continuous animation for fading in and out */
-        }
+    <!-- Favicon  -->
+    <link rel="icon" href="images/favicon.png" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
+    <script type="text/javascript">
+        (function() {
+           emailjs.init({
+              publicKey: "YkvseJTDQAMP-2Jim",
+            });
+        })();
+    </script>
+    
 
-        .icon {
-            width: 35px;
-            height: 35px;
-            margin: 20px; 
+    <script type="text/javascript">
+        function sendEmail(event) {
+            event.preventDefault(); // Prevent the default form submission
+    
+            // Show the spinner and hide the button text
+            document.getElementById('buttonSpinner').style.display = 'block';
+            document.getElementById('buttonText').style.display = 'none';
+    
+            emailjs.sendForm('service_fjy1aqj', 'template_kfrg9jr', document.getElementById('contactForm'))
+                .then(function(response) {
+                    // Hide the spinner and show the button text
+                    document.getElementById('buttonSpinner').style.display = 'none';
+                    document.getElementById('buttonText').style.display = 'block';
+                    alert('Message sent successfully!');
+                }, function(error) {
+                    // Hide the spinner and show the button text
+                    document.getElementById('buttonSpinner').style.display = 'none';
+                    document.getElementById('buttonText').style.display = 'block';
+                    alert('Failed to send message.');
+                });
         }
+    </script>
 
-        #footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.8); 
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-    </style>
-</head>
-<body>
-    <div id="logo">Hoş Geldiniz</div> 
-    <div id="main-text">Hayırlısı</div>
-    <div id="social-icons">
-        <a href="https://www.linkedin.com/in/freecnsz" target="_blank"><img class="icon" src="linkedin.png" alt="LinkedIn"></a>  
-        <a href="https://www.instagram.com/freecnsz" target="_blank"><img class="icon" src="instagram.png" alt="Instagram"></a>
+  </head>
+  <body data-spy="scroll" data-target=".fixed-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+      <div class="container">
+        <a class="navbar-brand logo-image" href="index.html"
+          ><img src="images/logo.svg" alt="alternative"
+        /></a>
+
+        <button
+          class="navbar-toggler p-0 border-0"
+          type="button"
+          data-toggle="offcanvas"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="navbar-collapse offcanvas-collapse"
+          id="navbarsExampleDefault"
+        >
+          <ul class="navbar-nav ml-auto">
+              <a class="nav-link page-scroll" href="#about">About Me</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="#contact">Contact Me</a>
+            </li>
+          </ul>
+          <span class="nav-item social-icons">
+            <span class="fa-stack">
+              <a href="https://www.linkedin.com/in/freecnsz" target="”_blank”">
+                <i class="fab fa-linkedin fa-stack-2x"></i>
+              </a>
+            </span>
+            <span class="fa-stack">
+              <a href="https://github.com/freecnsz" target="”_blank”">
+                <i class="fab fa-github fa-stack-2x"></i>
+              </a>
+            </span>
+          </span>
+        </div>
+        <!-- end of navbar-collapse -->
+      </div>
+      <!-- end of container -->
+    </nav>
+    <!-- end of navbar -->
+    <!-- end of navigation -->         
+   
+
+    <!-- Header -->
+    <header id="header" class="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="text-container">
+              <h1 class="h1-large">
+                Smile, you're in Free's world
+              </h1>
+              <a class="btn-solid-lg page-scroll" href="#about">Discover</a>
+              <a class="btn-outline-lg page-scroll" href="#contact"
+                ><i class="fas fa-user"></i>Contact Me</a
+              >
+              <a
+                class="btn-solid-lg page-scroll"
+                href="./resume/ozgur_cansiz_cv_en.pdf"
+                target="_blank"
+                >Get My Resume</a
+              >
+            </div>
+            <!-- end of text-container -->
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </header>
+    <!-- end of header -->
+    <!-- end of header -->
+
+    
+    <!-- About-->
+    <div id="about" class="basic-1 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="text-container first">
+                        <h2>Hi there, I'm Özgür,</h2>
+                        <p> And I’m a Computer Engineering student with a solid foundation in Java and practical experience 
+                            in Kotlin and Flutter projects. Aspiring to become a backend developer, 
+                            I'm currently expanding my skills in .NET. Coding is my passion, and I thrive on learning new technologies 
+                            and solving complex problems. I apply SOLID principles to create efficient, 
+                            scalable software solutions.</p>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-4">
+                    <div class="text-container third">
+                        <div class="time">July 2023 - August 2023</div>
+                        <h6>Frontend Developer Intern</h6>
+                        <p>Created and implemented user interface pages using Flutter.</p>
+                       
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+
+                <div class="col-lg-4">
+                    <div class="text-container third">
+                        <div class="time">September 2020 - Present</div>
+                        <h6>Bachelor of Science in Computer Engineering</h6>
+                        <p>Akdeniz University, Antalya, Türkiye</p>
+                       
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of about -->
+
+    <!-- Projects -->
+    <div id="projects" class="basic-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="h2-heading">Free's Projects</h2>
+            <p class="p-heading">
+              I've worked on various projects, each reflecting my skills and
+              dedication. Some are listed below, ranging from simple designs to
+              more complex developments, showcasing my versatility.
+            </p>
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="text-container">
+              <div class="image-container">
+                <a href="project.html">
+                  <img
+                    class="img-fluid"
+                    src="projects/restaurant-rating-app/login.png"
+                    alt="alternative"
+                  />
+                </a>
+              </div>
+              <!-- end of image-container -->
+              <p><strong>Project:</strong> Restaurant Rating App | FoodLig</p>
+              <p>
+                This Restaurant Rating App is a Software Engineering course
+                project. I worked on the front end using Flutter.
+                <a class="blue" href="https://github.com/freecnsz/restaurant-rating-app-frontend"> For codes</a>
+              </p>
+            </div>
+            <!-- end of text-container -->
+
+            <div class="text-container">
+              <div
+                class="image-container"
+                style="max-width: 300px; margin: 0 auto"
+              >
+                <a href="project.html">
+                  <img
+                    class="img-fluid"
+                    src="projects/restaurant-founder-app/icon.png"
+                    alt="alternative"
+                    style="width: 100%; height: auto"
+                  />
+                </a>
+              </div>
+              <!-- end of image-container -->
+              <p>
+                <strong>Project:</strong> Restaurant Founder App | WhereToEat
+              </p>
+              <p>
+                The Restaurant Finder App helps users discover nearby
+                restaurants and view rankings. Built with Kotlin in Android
+                Studio, it integrates Google Maps APIs and Firebase for user
+                authentication.
+                <a class="blue" href="https://github.com/freecnsz/restaurant-founder-app">For codes</a>
+              </p>
+            </div>
+
+            <!-- end of text-container -->
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
     </div>
-    <div id="footer">
-        All rights reserved © 2024. Powered by @freecnsz
+    <!-- end of basic-3 -->
+    <!-- end of projects -->
+
+    <!-- Skills -->
+    <div id="skills" class="basic-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="h2-heading">Skills & Expertise</h2>
+            <div class="text-box">
+              <i class="fas fa-code"></i>
+              <h4>Programming Languages</h4>
+              <p>
+                Proficient in Java, C#. Experienced with
+                HTML, CSS, C, Kotlin and Dart.
+              </p>
+            </div>
+            <div class="text-box">
+              <i class="fas fa-cogs"></i>
+              <h4>Technologies & Tools</h4>
+              <p>
+                Experienced with Git, GitHub, Docker, Linux, and various cloud platforms such as 
+                AWS and Azure. Strong familiarity with Agile methodologies.
+              </p>
+            </div>
+            <div class="text-box">
+              <i class="fas fa-project-diagram"></i>
+              <h4>Project Management</h4>
+              <p>
+                Skilled in project planning, resource management, and team
+                leadership. Adept at using project management tools like Trello.
+              </p>
+            </div>
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
     </div>
-</body>
+    <!-- end of basic-3 -->
+    <!-- end of skills -->
+
+    <!-- Section Divider -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <hr class="section-divider" />
+        </div>
+        <!-- end of col -->
+      </div>
+      <!-- end of row -->
+    </div>
+    <!-- end of container -->
+    <!-- end of section divider -->
+
+    <!-- Questions -->
+    <div class="accordion-1">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="h2-heading">Frequent questions</h2>
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <button
+                        class="btn btn-link btn-block text-left collapsed"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapseTwo"
+                        aria-expanded="false"
+                        aria-controls="collapseTwo"
+                      >
+                        Who am I?
+                      </button>
+                    </div>
+                    <div
+                      id="collapseTwo"
+                      class="collapse"
+                      aria-labelledby="headingTwo"
+                      data-parent="#accordionExample"
+                    >
+                      <div class="card-body">
+                        A dreamy computer engineering student who is passionate about coding and learning new technologies.
+                      </div>
+                    </div>
+                  </div>
+                <div class="card">
+                    <div class="card-header" id="headingFive">
+                      <button
+                        class="btn btn-link btn-block text-left collapsed"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#collapseFive"
+                        aria-expanded="false"
+                        aria-controls="collapseFive"
+                      >
+                        What is freecnsz means?
+                      </button>
+                    </div>
+                    <div
+                      id="collapseFive"
+                      class="collapse"
+                      aria-labelledby="headingFive"
+                      data-parent="#accordionExample"
+                    >
+                      <div class="card-body">
+                        freecnsz is a combination of the English meaning of my first name and the letters of my surname. 
+                        I use it as my username on social media and other platforms.
+                      </div>
+                    </div>
+                  </div>
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <button
+                    class="btn btn-link btn-block text-left"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                  How can you reach me?
+                  </button>
+                </div>
+                <div
+                  id="collapseOne"
+                  class="collapse show"
+                  aria-labelledby="headingOne"
+                  data-parent="#accordionExample"
+                >
+                  <div class="card-body">
+                    The best way to reach me is texting me on my social media accounts or emailing me.
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <button
+                    class="btn btn-link btn-block text-left collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    Why do I have a website?
+                  </button>
+                </div>
+                <div
+                  id="collapseThree"
+                  class="collapse"
+                  aria-labelledby="headingThree"
+                  data-parent="#accordionExample"
+                >
+                  <div class="card-body">
+                    To showcase my projects, skills, and experiences. Also, to
+                    connect with other developers and potential employers.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <!-- end of accordion -->
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of accordion-1 -->
+    <!-- end of questions -->
+
+    <!-- Contact -->
+    <div id="contact" class="form-1 bg-gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2>Contact details</h2>
+            <p class="p-heading">
+              Feel free to reach out for job opportunities, collaborations, or just to chat. The quickest way to contact me is by emailing <a class="blue no-line" href="mailto:ozgurcansizz@outlook.com"
+              >ozgurcansizz@outlook.com</a>. I look forward to connecting with you!
+              
+            </p>
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- Contact Form -->
+            <form id="contactForm" onsubmit="sendEmail(event)">
+                <div class="form-group">
+                    <input type="text" class="form-control-input" id="user_name" name="user_name" required />
+                    <label class="label-control" for="user_name">Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control-input" id="from_email" name="from_email" required />
+                    <label class="label-control" for="from_email">Email</label>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control-textarea" id="message" name="message" required></textarea>
+                    <label class="label-control" for="message">Message</label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="form-control-submit-button" id="submitButton">
+                        <span id="buttonText">Submit</span>
+                        <div id="buttonSpinner" class="spinner" style="display: none;"></div>
+                    </button>
+                </div>
+            </form>
+            
+
+            <div id="loadingIndicator" style="display: none;">
+                <p>Sending your message...</p>
+                <div class="spinner"></div> <!-- Spinner for visual feedback -->
+            </div>
+            
+              
+            <!-- end of contact form -->
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of form-1 -->
+    <!-- end of contact -->
+
+    <!-- Footer -->
+    <div class="footer bg-gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="social-container">
+              <span class="fa-stack">
+                <a href="https://www.instagram.com/freecnsz" target="_blank">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-instagram fa-stack-1x"></i>
+                </a>
+              </span>
+              <span class="fa-stack">
+                <a href="https://www.linkedin.com/in/freecnsz" target="_blank">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-linkedin fa-stack-1x"></i>
+                </a>
+              </span>
+              <span class="fa-stack">
+                <a href="https://github.com/freecnsz" target="_blank">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x"></i>
+                </a>
+              </span>
+            </div>
+            <!-- end of social-container -->
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of footer -->
+    <!-- end of footer -->
+
+    <!-- Copyright -->
+    <div class="copyright bg-gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="p-small">
+              Copyright © 2025
+              <a class="no-line" href="https://www.linkedin.com/in/freecnsz"
+                >@freecnsz</a
+              >
+            </p>
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- enf of row -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of copyright -->
+    <!-- end of copyright -->
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap framework -->
+    <script src="js/jquery.easing.min.js"></script>
+    <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="js/scripts.js"></script>
+    <!-- Custom scripts -->
+  </body>
 </html>
-
