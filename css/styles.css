@@ -438,6 +438,10 @@ input[type='checkbox'] {
 	transition: all 0.2s ease;
 }
 
+.about-header {
+	text-align: center;
+}
+
 .navbar .nav-item.dropdown.show .nav-link,
 .navbar .nav-item .nav-link:hover,
 .navbar .nav-item .nav-link.active {
