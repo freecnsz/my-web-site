@@ -6,24 +6,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Personel website for @freecnsz" />
+  <meta name="description" content="Özgür Cansız - Backend Developer, Java & .NET enthusiast. Explore my portfolio, projects, and skills in software engineering, backend development, and technology." />
   <meta name="author" content="Özgür Cansız" />
+  <meta name="keywords" content="özgür cansız, backend developer, java, .net, software engineer, portfolio, projects, technology, flutter, kotlin, c#, personal website" />
 
   <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
   <meta property="og:site_name" content="freecnsz.com" />
-  <!-- website name -->
   <meta property="og:site" content="freecnsz.com" />
-  <!-- website link -->
-  <meta property="og:title" content="Free's World" />
-  <!-- title shown in the actual shared post -->
-  <meta property="og:description" content="Özgür Cansız" />
-  <!-- description shown in the actual shared post -->
-  <meta property="og:image" content="Özgür" />
-  <!-- image link, make sure it's jpg -->
-  <meta property="og:url" content="https:" />
-  <!-- where do you want your post to link to -->
+  <meta property="og:title" content="Özgür Cansız | Backend Developer & Software Engineer" />
+  <meta property="og:description" content="Portfolio of Özgür Cansız, backend developer skilled in Java, .NET, Flutter, and more. Explore projects, skills, and contact information." />
+  <meta property="og:image" content="images/header-background.jpg" />
+  <meta property="og:url" content="https://freecnsz.com" />
   <meta name="twitter:card" content="summary_large_image" />
-  <!-- to have large image post format in Twitter -->
+
+  <!-- Structured Data: Person & Website Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Özgür Cansız",
+    "url": "https://freecnsz.com",
+    "image": "https://freecnsz.com/images/pp.png",
+    "sameAs": [
+      "https://www.linkedin.com/in/freecnsz",
+      "https://github.com/freecnsz",
+      "https://www.instagram.com/freecnsz"
+    ],
+    "jobTitle": "Backend Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Personal Portfolio"
+    },
+    "description": "Backend Developer, Java & .NET enthusiast. Explore my portfolio, projects, and skills in software engineering, backend development, and technology."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://freecnsz.com",
+    "name": "Özgür Cansız Portfolio",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://freecnsz.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 
   <!-- Webpage Title -->
   <title>Free's World</title>
@@ -51,24 +80,27 @@
 
 
   <script type="text/javascript">
+    function showFormMessage(type, message) {
+      var formMessage = document.getElementById('formMessage');
+      formMessage.style.display = 'block';
+      formMessage.innerHTML = `<div class="alert alert-${type} mt-3" role="alert">${message}</div>`;
+      setTimeout(function() { formMessage.style.display = 'none'; }, 6000);
+    }
     function sendEmail(event) {
-      event.preventDefault(); // Prevent the default form submission
-
-      // Show the spinner and hide the button text
+      event.preventDefault();
       document.getElementById('buttonSpinner').style.display = 'block';
       document.getElementById('buttonText').style.display = 'none';
-
+      document.getElementById('formMessage').style.display = 'none';
       emailjs.sendForm('service_fjy1aqj', 'template_kfrg9jr', document.getElementById('contactForm'))
         .then(function (response) {
-          // Hide the spinner and show the button text
           document.getElementById('buttonSpinner').style.display = 'none';
           document.getElementById('buttonText').style.display = 'block';
-          alert('Message sent successfully!');
+          document.getElementById('contactForm').reset();
+          showFormMessage('success', 'Message sent successfully!');
         }, function (error) {
-          // Hide the spinner and show the button text
           document.getElementById('buttonSpinner').style.display = 'none';
           document.getElementById('buttonText').style.display = 'block';
-          alert('Failed to send message.');
+          showFormMessage('danger', 'Failed to send message. Please try again later.');
         });
     }
   </script>
@@ -77,47 +109,33 @@
 
 <body data-spy="scroll" data-target=".fixed-top">
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-    <div class="container">
-      <a class="navbar-brand logo-image" href="https://freecnsz.com"><img src="images/logo-t.svg" alt="alternative" /></a>
-
-      <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+  <nav class="pro-navbar navbar navbar-expand-lg fixed-top navbar-dark">
+    <div class="container pro-navbar-container">
+      <a class="navbar-brand pro-navbar-logo" href="https://freecnsz.com">
+        <img src="images/logo-t.svg" alt="Freecnsz Logo" loading="lazy" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#proNavbar" aria-controls="proNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link page-scroll" href="#about">About Me</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link page-scroll" href="#contact">Contact Me</a>
-          </li>
+      <div class="collapse navbar-collapse" id="proNavbar">
+        <ul class="navbar-nav mx-auto pro-navbar-menu">
+          <li class="nav-item"><a class="nav-link page-scroll" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link page-scroll" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link page-scroll" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link page-scroll" href="#contact">Contact</a></li>
         </ul>
-        <span class="nav-item social-icons">
-          <span class="fa-stack">
-            <a href="https://www.linkedin.com/in/freecnsz" target="”_blank”">
-              <i class="fab fa-linkedin fa-stack-2x"></i>
-            </a>
-          </span>
-          <span class="fa-stack">
-            <a href="https://github.com/freecnsz" target="”_blank”">
-              <i class="fab fa-github fa-stack-2x"></i>
-            </a>
-          </span>
-        </span>
+        <div class="pro-navbar-social ml-auto">
+          <a href="https://www.linkedin.com/in/freecnsz" target="_blank" class="pro-navbar-icon"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/freecnsz" target="_blank" class="pro-navbar-icon"><i class="fab fa-github"></i></a>
+        </div>
       </div>
-      <!-- end of navbar-collapse -->
     </div>
-    <!-- end of container -->
   </nav>
-  <!-- end of navbar -->
   <!-- end of navigation -->
 
 
   <!-- Header -->
-  <header id="header" class="header">
+  <header id="header" class="header" style="background: linear-gradient(rgba(36,38,42,0.45), rgba(36,38,42,0.25)), url('images/header-background.jpg') center center/cover no-repeat;">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
@@ -125,9 +143,9 @@
             <h1 class="h1-large">
               Smile, you're in Free's world
             </h1>
-            <a class="btn-solid-lg page-scroll" href="#about">Discover</a>
-            <a class="btn-solid-lg page-scroll" href="#contact">Contact Me</a>
-            <a class="btn-solid-lg page-scroll" href="./resume/ozgur_cansiz_cv_en.pdf" target="_blank">Get My Resume</a>
+            <a class="modern-header-btn page-scroll mr-2" href="#about" aria-label="Discover about Özgür Cansız">Discover</a>
+            <a class="modern-header-btn page-scroll mr-2" href="#contact" aria-label="Contact Özgür Cansız">Contact Me</a>
+            <a class="modern-header-btn page-scroll" href="./resume/ozgur_cansiz_cv_en.pdf" target="_blank" aria-label="Download Özgür Cansız Resume">Get My Resume</a>
           </div>
           <!-- end of text-container -->
         </div>
@@ -142,140 +160,195 @@
 
 
   <!-- About-->
-  <div id="about" class="basic-1 bg-gray">
+  <section id="about" class="pro-about-section-v2 py-5">
     <div class="container">
-      <div class="row">    
-          <div class="col-lg-12">
-            <h2 class="about-header">Hi there, I'm Özgür,</h2>
-            <p> And I’m a Computer Engineering student with a solid foundation in Java and practical experience
-              in Kotlin and Flutter projects. Aspiring to become a backend developer,
-              I'm currently expanding my skills in .NET. Coding is my passion, and I thrive on learning new technologies
-              and solving complex problems. I apply SOLID principles to create efficient,
-              scalable software solutions.</p>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of container -->
-  </div> <!-- end of basic-1 -->
+      <div class="row align-items-center">
+        <div class="col-lg-5 mb-4 mb-lg-0 text-center text-lg-left">
+          <div class="pro-about-avatar-v2 mb-3 mx-auto mx-lg-0">
+            <img src="images/pp.png" alt="Özgür Cansız" loading="lazy" />
+            <div class="avatar-name">Özgür Cansız</div>
+            <div class="avatar-title">Software Developer</div>
+          </div>
+          <h2 class="pro-about-title-v2 mb-2">Hi, I'm Özgür</h2>
+          <p class="pro-about-lead-v2 mb-3">A Software developer with a passion for writing code that lasts — clean, thoughtful, and built to scale. Blending .NET, Java, and PostgreSQL with an eye for architecture, I strive to create systems that are as reliable as they are maintainable. Always learning, always refining.</p>
+          <div class="pro-about-motto mb-4">"In a world of noise, I speak in code — precise, patient, and meant to last."</div>
+          <div class="pro-about-tags">
+            <span class="pro-about-tag"><i class="fas fa-server"></i> Backend</span>
+            <span class="pro-about-tag"><i class="fas fa-cogs"></i> .NET</span>
+            <span class="pro-about-tag"><i class="fab fa-java"></i> Java</span>
+            <span class="pro-about-tag"><i class="fas fa-lightbulb"></i> Problem Solver</span>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="pro-about-highlights">
+            <div class="pro-about-highlight">
+              <div class="pro-about-highlight-icon"><i class="fas fa-graduation-cap"></i></div>
+              <div>
+                <div class="pro-about-highlight-title">Education</div>
+                <div class="pro-about-highlight-desc">BSc in Computer Engineering | Akdeniz University</div>
+              </div>
+            </div>
+            <div class="pro-about-highlight">
+              <div class="pro-about-highlight-icon"><i class="fas fa-server"></i></div>
+              <div>
+                <div class="pro-about-highlight-title">Backend Focus</div>
+                <div class="pro-about-highlight-desc">.NET, C#, PostgreSQL, Clean Architecture</div>
+              </div>
+            </div>
+            <div class="pro-about-highlight">
+              <div class="pro-about-highlight-icon"><i class="fas fa-users"></i></div>
+              <div>
+                <div class="pro-about-highlight-title">Collaboration</div>
+                <div class="pro-about-highlight-desc">Team player, agile development experience, leadership in volunteer organizations</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- end of about -->
 
   <!-- Projects -->
-  <div id="projects" class="basic-3">
+  <section id="projects" class="modern-projects-carousel-section py-5">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h2 class="h2-heading">Free's Projects</h2>
-          <p class="p-heading">
-            I've worked on various projects, each reflecting my skills and
-            dedication. Some are listed below, ranging from simple designs to
-            more complex developments, showcasing my versatility.
-          </p>
-        </div>
-        <!-- end of col -->
+      <div class="section-title text-center mb-5">
+        <i class="fas fa-folder-open fa-2x text-primary mb-2"></i>
+        <h2 class="mb-2">Featured Projects</h2>
+        <p class="text-muted">A selection of my favorite works. Swipe or use the arrows to explore more.</p>
       </div>
-      <!-- end of row -->
-      <div class="row">
-        <div class="col-lg-12">
-
-          <div class="text-container">
-            <div class="image-container">
-
-              <img class="img-fluid" src="projects/trading-bot/ss1.jpeg" alt="alternative" />
-
+      <div class="modern-projects-carousel-wrapper position-relative">
+        <button class="carousel-arrow left" onclick="scrollProjects(-1)"><i class="fas fa-chevron-left"></i></button>
+        <div class="modern-projects-carousel" id="projectsCarousel">
+          <div class="modern-project-card">
+            <div class="project-img-slider">
+              <div class="project-img-slider-inner">
+                <img src="projects/doft-api/logo.png" alt="DoFT API Logo" class="project-img-slide active" loading="lazy" />
+              </div>
+              <button class="img-slider-arrow left" onclick="slideProjectImg(this, -1)"><i class="fas fa-chevron-left"></i></button>
+              <button class="img-slider-arrow right" onclick="slideProjectImg(this, 1)"><i class="fas fa-chevron-right"></i></button>
+              <div class="img-slider-dots">
+                <span class="img-slider-dot active" onclick="goToProjectImg(this, 0)"></span>
+              </div>
             </div>
-            <!-- end of image-container -->
-            <p><strong>Project:</strong> Trading Bot </p>
-            <p>
-              An automated trading bot app. I worked on forntend using React and on backend using Python.
-              <a class="blue" href="https://github.com/freecnsz/trading-bot"> For codes</a>
-            </p>
-          </div>
-          <!-- end of text-container -->
-
-          <div class="text-container">
-            <div class="image-container">
-
-              <img class="img-fluid" src="projects/restaurant-rating-app/login.png" alt="alternative" />
-
+            <div class="modern-project-card-body">
+              <h5 class="modern-project-title">DoFT – Task Management API</h5>
+              <p class="modern-project-desc">A modular backend system built with .NET 8, PostgreSQL, and AWS S3. Features JWT auth, CQRS, logging, and full Docker setup.</p>
+              <a href="https://github.com/freecnsz/doft-api" class="modern-project-btn" target="_blank" rel="noopener"><i class="fab fa-github mr-1"></i>View Code</a>
             </div>
-            <!-- end of image-container -->
-            <p><strong>Project:</strong> Restaurant Rating App | FoodLig</p>
-            <p>
-              This Restaurant Rating App is a Software Engineering course
-              project. I worked on the front end using Flutter.
-              <a class="blue" href="https://github.com/freecnsz/restaurant-rating-app-frontend"> For codes</a>
-            </p>
           </div>
-          <!-- end of text-container -->
-
-          <div class="text-container">
-            <div class="image-container" style="max-width: 300px; margin: 0 auto">
-
-              <img class="img-fluid" src="projects/restaurant-founder-app/icon.png" alt="alternative"
-                style="width: 100%; height: auto" />
-
+          <!-- Where To Eat? - Restaurant Founder App (4 görsel) -->
+          <div class="modern-project-card">
+            <div class="project-img-slider">
+              <div class="project-img-slider-inner">
+                <img src="projects/restaurant-founder-app/icon.png" alt="Restaurant Founder App Icon" class="project-img-slide active" loading="lazy" />
+                <img src="projects/restaurant-founder-app/ss1.jpg" alt="Restaurant Founder App Screenshot 1" class="project-img-slide" loading="lazy" />
+                <img src="projects/restaurant-founder-app/ss2.jpg" alt="Restaurant Founder App Screenshot 2" class="project-img-slide" loading="lazy" />
+                <img src="projects/restaurant-founder-app/ss3.jpg" alt="Restaurant Founder App Screenshot 3" class="project-img-slide" loading="lazy" />
+              </div>
+              <button class="img-slider-arrow left" onclick="slideProjectImg(this, -1)"><i class="fas fa-chevron-left"></i></button>
+              <button class="img-slider-arrow right" onclick="slideProjectImg(this, 1)"><i class="fas fa-chevron-right"></i></button>
+              <div class="img-slider-dots">
+                <span class="img-slider-dot active" onclick="goToProjectImg(this, 0)"></span>
+                <span class="img-slider-dot" onclick="goToProjectImg(this, 1)"></span>
+                <span class="img-slider-dot" onclick="goToProjectImg(this, 2)"></span>
+                <span class="img-slider-dot" onclick="goToProjectImg(this, 3)"></span>
+              </div>
             </div>
-            <!-- end of image-container -->
-            <p>
-              <strong>Project:</strong> Restaurant Founder App | WhereToEat
-            </p>
-            <p>
-              The Restaurant Finder App helps users discover nearby
-              restaurants and view rankings. Built with Kotlin in Android
-              Studio, it integrates Google Maps APIs and Firebase for user
-              authentication.
-              <a class="blue" href="https://github.com/freecnsz/restaurant-founder-app">For codes</a>
-            </p>
+            <div class="modern-project-card-body">
+              <h5 class="modern-project-title">Where To Eat? - Restaurant Founder App</h5>
+              <p class="modern-project-desc">Android app built with Kotlin and Google Maps API to help users find nearby restaurants.</p>
+              <a href="https://github.com/freecnsz/restaurant-founder-app" class="modern-project-btn" target="_blank" rel="noopener"><i class="fab fa-github mr-1"></i>View Code</a>
+            </div>
           </div>
-
-          <!-- end of text-container -->
+          <!-- FoodLig – Restaurant Rating App (3 görsel) -->
+          <div class="modern-project-card">
+            <div class="project-img-slider">
+              <div class="project-img-slider-inner">
+                <img src="projects/restaurant-rating-app/login.png" alt="Restaurant Rating App Login" class="project-img-slide active" loading="lazy" />
+                <img src="projects/restaurant-rating-app/register.png" alt="Restaurant Rating App Register" class="project-img-slide" loading="lazy" />
+                <img src="projects/restaurant-rating-app/home.png" alt="Restaurant Rating App Home" class="project-img-slide" loading="lazy" />
+              </div>
+              <button class="img-slider-arrow left" onclick="slideProjectImg(this, -1)"><i class="fas fa-chevron-left"></i></button>
+              <button class="img-slider-arrow right" onclick="slideProjectImg(this, 1)"><i class="fas fa-chevron-right"></i></button>
+              <div class="img-slider-dots">
+                <span class="img-slider-dot active" onclick="goToProjectImg(this, 0)"></span>
+                <span class="img-slider-dot" onclick="goToProjectImg(this, 1)"></span>
+                <span class="img-slider-dot" onclick="goToProjectImg(this, 2)"></span>
+              </div>
+            </div>
+            <div class="modern-project-card-body">
+              <h5 class="modern-project-title">FoodLig – Restaurant Rating App</h5>
+              <p class="modern-project-desc">Flutter-based mobile app that lets users rate and review restaurants. Developed frontend in a team setting.</p>
+              <a href="https://github.com/freecnsz/restaurant-rating-app-frontend" class="modern-project-btn" target="_blank" rel="noopener"><i class="fab fa-github mr-1"></i>View Code</a>
+            </div>
+          </div>
+          <!-- CryptoBot (1 görsel) -->
+          <div class="modern-project-card">
+            <div class="project-img-slider">
+              <div class="project-img-slider-inner">
+                <img src="projects/trading-bot/ss1.jpeg" alt="Trading Bot Screenshot 1" class="project-img-slide active" loading="lazy" />
+              </div>
+              <button class="img-slider-arrow left" onclick="slideProjectImg(this, -1)"><i class="fas fa-chevron-left"></i></button>
+              <button class="img-slider-arrow right" onclick="slideProjectImg(this, 1)"><i class="fas fa-chevron-right"></i></button>
+              <div class="img-slider-dots">
+                <span class="img-slider-dot active" onclick="goToProjectImg(this, 0)"></span>
+              </div>
+            </div>
+            <div class="modern-project-card-body">
+              <h5 class="modern-project-title">CryptoBot</h5>
+              <p class="modern-project-desc">Automated trading bot using Binance API, Python strategies, and a React dashboard for real-time control.</p>
+              <a href="https://github.com/freecnsz/trading-bot" class="modern-project-btn" target="_blank" rel="noopener"><i class="fab fa-github mr-1"></i>View Code</a>
+            </div>
+          </div>
+          <!-- Daha fazla proje eklenebilir -->
         </div>
-        <!-- end of col -->
+        <button class="carousel-arrow right" onclick="scrollProjects(1)"><i class="fas fa-chevron-right"></i></button>
       </div>
-      <!-- end of row -->
     </div>
-    <!-- end of container -->
-  </div>
-  <!-- end of basic-3 -->
+  </section>
   <!-- end of projects -->
 
   <!-- Skills -->
-  <div id="skills" class="basic-3">
+  <section id="skills" class="modern-skills-section py-5">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h2 class="h2-heading">Skills & Expertise</h2>
-          <div class="text-box">
-            <i class="fas fa-code"></i>
-            <h4>Programming Languages</h4>
-            <p>
-              Proficient in Java, C#. Experienced with
-              HTML, CSS, C, Kotlin and Dart.
-            </p>
-          </div>
-          <div class="text-box">
-            <i class="fas fa-cogs"></i>
-            <h4>Technologies & Tools</h4>
-            <p>
-              Experienced with Git, GitHub, Docker, Linux, and various cloud platforms such as
-              AWS and Azure. Strong familiarity with Agile methodologies.
-            </p>
-          </div>
-          <div class="text-box">
-            <i class="fas fa-project-diagram"></i>
-            <h4>Project Management</h4>
-            <p>
-              Skilled in project planning, resource management, and team
-              leadership. Adept at using project management tools like Trello.
-            </p>
+      <div class="section-title text-center mb-5">
+        <i class="fas fa-tools fa-2x text-primary mb-2"></i>
+        <h2 class="mb-2">Skills & Expertise</h2>
+        <p class="text-muted">Technologies and tools I use to build, manage and deliver quality software.</p>
+      </div>
+      <div class="row modern-skills-grid">
+        <div class="col-md-4 mb-4">
+          <div class="modern-skill-card">
+            <div class="modern-skill-icon bg-primary text-white"><i class="fas fa-server"></i></div>
+            <h5>Backend</h5>
+            <p>.NET, C#, Java, PostgreSQL, REST APIs, Clean Architecture</p>
           </div>
         </div>
-        <!-- end of col -->
+        <div class="col-md-4 mb-4">
+          <div class="modern-skill-card">
+            <div class="modern-skill-icon bg-success text-white"><i class="fas fa-mobile-alt"></i></div>
+            <h5>Frontend & Mobile</h5>
+            <p>Flutter, React, Kotlin, HTML/CSS</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="modern-skill-card">
+            <div class="modern-skill-icon bg-warning text-white"><i class="fas fa-cloud"></i></div>
+            <h5>DevOps & Cloud</h5>
+            <p>Docker, Git, GitHub Actions, AWS S3, Azure</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="modern-skill-card">
+            <div class="modern-skill-icon bg-info text-white"><i class="fas fa-toolbox"></i></div>
+            <h5>Others</h5>
+            <p>Linux, SQL, MediatR, Firebase, C, Python</p>
+          </div>
+        </div>
       </div>
-      <!-- end of row -->
     </div>
-    <!-- end of container -->
-  </div>
-  <!-- end of basic-3 -->
+  </section>
   <!-- end of skills -->
 
   <!-- Section Divider -->
@@ -292,199 +365,107 @@
   <!-- end of section divider -->
 
   <!-- Questions -->
-  <div class="accordion-1">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h2 class="h2-heading">Frequent questions</h2>
-        </div>
-        <!-- end of col -->
-      </div>
-      <!-- end of row -->
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="accordion" id="accordionExample">
-            <div class="card">
-              <div class="card-header" id="headingTwo">
-                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                  data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Who am I?
-                </button>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="card-body">
-                  A dreamy computer engineering student who is passionate about coding and learning new technologies.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingFive">
-                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                  data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                  What is freecnsz means?
-                </button>
-              </div>
-              <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-                <div class="card-body">
-                  freecnsz is a combination of the English meaning of my first name and the letters of my surname.
-                  I use it as my username on social media and other platforms.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingOne">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                  data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  How can you reach me?
-                </button>
-              </div>
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
-                  The best way to reach me is texting me on my social media accounts or emailing me.
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header" id="headingThree">
-                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                  data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Why do I have a website?
-                </button>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <div class="card-body">
-                  To showcase my projects, skills, and experiences. Also, to
-                  connect with other developers and potential employers.
-                </div>
-              </div>
-            </div>
-
+  <div class="modern-faq-section py-5">
+    <div class="modern-faq-wrapper mx-auto">
+      <h2 class="modern-faq-title mb-4">Frequently Asked Questions</h2>
+      <div class="modern-faq-accordion" id="modernAccordion">
+        <div class="modern-faq-item">
+          <button class="modern-faq-question" type="button" data-toggle="collapse" data-target="#faq1" aria-expanded="false" aria-controls="faq1">
+            <i class="fas fa-user-circle mr-2"></i>Who am I?
+            <span class="faq-arrow"><i class="fas fa-chevron-down"></i></span>
+          </button>
+          <div id="faq1" class="collapse" data-parent="#modernAccordion">
+            <div class="modern-faq-answer">A dreamy computer engineering student who is passionate about coding and learning new technologies.</div>
           </div>
-          <!-- end of accordion -->
         </div>
-        <!-- end of col -->
+        <div class="modern-faq-item">
+          <button class="modern-faq-question" type="button" data-toggle="collapse" data-target="#faq2" aria-expanded="false" aria-controls="faq2">
+            <i class="fas fa-question-circle mr-2"></i>What does freecnsz mean?
+            <span class="faq-arrow"><i class="fas fa-chevron-down"></i></span>
+          </button>
+          <div id="faq2" class="collapse" data-parent="#modernAccordion">
+            <div class="modern-faq-answer">freecnsz is a combination of the English meaning of my first name and the letters of my surname. I use it as my username on social media and other platforms.</div>
+          </div>
+        </div>
+        <div class="modern-faq-item">
+          <button class="modern-faq-question" type="button" data-toggle="collapse" data-target="#faq3" aria-expanded="false" aria-controls="faq3">
+            <i class="fas fa-envelope mr-2"></i>How can you reach me?
+            <span class="faq-arrow"><i class="fas fa-chevron-down"></i></span>
+          </button>
+          <div id="faq3" class="collapse show" data-parent="#modernAccordion">
+            <div class="modern-faq-answer">The best way to reach me is texting me on my social media accounts or emailing me.</div>
+          </div>
+        </div>
+        <div class="modern-faq-item">
+          <button class="modern-faq-question" type="button" data-toggle="collapse" data-target="#faq4" aria-expanded="false" aria-controls="faq4">
+            <i class="fas fa-globe mr-2"></i>Why do I have a website?
+            <span class="faq-arrow"><i class="fas fa-chevron-down"></i></span>
+          </button>
+          <div id="faq4" class="collapse" data-parent="#modernAccordion">
+            <div class="modern-faq-answer">To showcase my projects, skills, and experiences. Also, to connect with other developers and potential employers.</div>
+          </div>
+        </div>
       </div>
-      <!-- end of row -->
     </div>
-    <!-- end of container -->
   </div>
-  <!-- end of accordion-1 -->
   <!-- end of questions -->
 
   <!-- Contact -->
-  <div id="contact" class="form-1 bg-gray">
+  <section id="contact" class="pro-contact-section py-5">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h2>Contact details</h2>
-          <p class="p-heading">
-            Feel free to reach out for job opportunities, collaborations, or just to chat. The quickest way to contact
-            me is by emailing <a class="blue no-line"
-              href="mailto:ozgurcansizz@outlook.com">ozgurcansizz@outlook.com</a>. I look forward to connecting with
-            you!
-
-          </p>
-        </div>
-        <!-- end of col -->
-      </div>
-      <!-- end of row -->
-      <div class="row">
-        <div class="col-lg-12">
-          <!-- Contact Form -->
-          <form id="contactForm" onsubmit="sendEmail(event)">
-            <div class="form-group">
-              <input type="text" class="form-control-input" id="user_name" name="user_name" required />
-              <label class="label-control" for="user_name">Name</label>
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="pro-contact-card p-4">
+            <div class="pro-contact-header mb-4 text-center">
+              <i class="fas fa-envelope fa-2x text-primary mb-2"></i>
+              <h2 class="mb-2">Contact Me</h2>
+              <p class="text-muted mb-0">Feel free to reach out for job opportunities, collaborations, or just to chat. The quickest way to contact me is by email or the form below.</p>
             </div>
-            <div class="form-group">
-              <input type="email" class="form-control-input" id="from_email" name="from_email" required />
-              <label class="label-control" for="from_email">Email</label>
+            <div class="pro-contact-info mb-4 text-center">
+              <a href="mailto:ozgurcansizz@outlook.com" class="pro-contact-link"><i class="fas fa-paper-plane mr-2"></i>ozgurcansizz@outlook.com</a>
             </div>
-            <div class="form-group">
-              <textarea class="form-control-textarea" id="message" name="message" required></textarea>
-              <label class="label-control" for="message">Message</label>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="form-control-submit-button" id="submitButton">
-                <span id="buttonText">Submit</span>
-                <div id="buttonSpinner" class="spinner" style="display: none;"></div>
-              </button>
-            </div>
-          </form>
-
-
-          <div id="loadingIndicator" style="display: none;">
-            <p>Sending your message...</p>
-            <div class="spinner"></div> <!-- Spinner for visual feedback -->
+            <form id="contactForm" onsubmit="sendEmail(event)">
+              <div class="form-group">
+                <input type="text" class="form-control-input" id="user_name" name="user_name" required />
+                <label class="label-control" for="user_name">Name</label>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control-input" id="from_email" name="from_email" required />
+                <label class="label-control" for="from_email">Email</label>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control-textarea" id="message" name="message" required></textarea>
+                <label class="label-control" for="message">Message</label>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="modern-submit-btn" id="submitButton">
+                  <span id="buttonText"><i class="fas fa-paper-plane mr-2"></i>Send Message</span>
+                  <div id="buttonSpinner" class="spinner" style="display: none;"></div>
+                </button>
+              </div>
+            </form>
+            <div id="formMessage" style="display:none;"></div>
           </div>
-
-
-          <!-- end of contact form -->
         </div>
-        <!-- end of col -->
       </div>
-      <!-- end of row -->
     </div>
-    <!-- end of container -->
-  </div>
-  <!-- end of form-1 -->
+  </section>
   <!-- end of contact -->
 
   <!-- Footer -->
-  <div class="footer bg-gray">
+  <footer class="pro-footer">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="social-container">
-            <span class="fa-stack">
-              <a href="https://www.instagram.com/freecnsz" target="_blank">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-instagram fa-stack-1x"></i>
-              </a>
-            </span>
-            <span class="fa-stack">
-              <a href="https://www.linkedin.com/in/freecnsz" target="_blank">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-linkedin fa-stack-1x"></i>
-              </a>
-            </span>
-            <span class="fa-stack">
-              <a href="https://github.com/freecnsz" target="_blank">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-github fa-stack-1x"></i>
-              </a>
-            </span>
-          </div>
-          <!-- end of social-container -->
-        </div>
-        <!-- end of col -->
+      <div class="pro-footer-social mb-2">
+        <a href="https://www.instagram.com/freecnsz" target="_blank" class="pro-footer-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/freecnsz" target="_blank" class="pro-footer-icon"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/freecnsz" target="_blank" class="pro-footer-icon"><i class="fab fa-github"></i></a>
       </div>
-      <!-- end of row -->
-    </div>
-    <!-- end of container -->
-  </div>
-  <!-- end of footer -->
-  <!-- end of footer -->
-
-  <!-- Copyright -->
-  <div class="copyright bg-gray">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p class="p-small">
-            Copyright © 2026
-            <a class="no-line" href="https://www.linkedin.com/in/freecnsz">@freecnsz</a>
-          </p>
-        </div>
-        <!-- end of col -->
+      <div class="pro-footer-copyright">
+        <small>&copy; <span id="copyright-year"></span> <a href="https://www.linkedin.com/in/freecnsz">@freecnsz</a></small>
       </div>
-      <!-- enf of row -->
     </div>
-    <!-- end of container -->
-  </div>
-  <!-- end of copyright -->
-  <!-- end of copyright -->
+  </footer>
+  <!-- end of footer -->
 
   <!-- Scripts -->
   <script src="js/jquery.min.js"></script>
@@ -495,6 +476,40 @@
   <!-- jQuery Easing for smooth scrolling between anchors -->
   <script src="js/scripts.js"></script>
   <!-- Custom scripts -->
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    function scrollProjects(direction) {
+      const carousel = document.getElementById('projectsCarousel');
+      const card = carousel.querySelector('.modern-project-card');
+      if (!card) return;
+      const scrollAmount = card.offsetWidth + 24; // kart arası boşluk
+      carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+  </script>
+  <script>
+    function slideProjectImg(btn, dir) {
+      const slider = btn.closest('.project-img-slider');
+      const slides = slider.querySelectorAll('.project-img-slide');
+      const dots = slider.querySelectorAll('.img-slider-dot');
+      let current = Array.from(slides).findIndex(s => s.classList.contains('active'));
+      let next = (current + dir + slides.length) % slides.length;
+      slides[current].classList.remove('active');
+      slides[next].classList.add('active');
+      if (dots.length) {
+        dots[current].classList.remove('active');
+        dots[next].classList.add('active');
+      }
+    }
+    function goToProjectImg(dot, idx) {
+      const slider = dot.closest('.project-img-slider');
+      const slides = slider.querySelectorAll('.project-img-slide');
+      const dots = slider.querySelectorAll('.img-slider-dot');
+      slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+  </script>
 </body>
 
 </html>
